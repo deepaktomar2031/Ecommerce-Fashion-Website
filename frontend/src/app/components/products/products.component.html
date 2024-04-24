@@ -1,0 +1,18 @@
+<div class="products-container">
+  <div class="product" *ngFor="let product of productData">
+    <div class="product-image">
+      <img src="./assets/productImages/{{ product.image }}" alt="{{ product.name }}">
+    </div>
+    <div class="product-details">
+      <p class="product-brandName">Brand: {{ product.brandName }}</p>
+      <p class="product-category">{{ product.category }}</p>
+      <p class="product-color">Color: {{ product.color }}</p>
+      <p class="product-name">{{ product.name }}</p>
+      <p class="product-price">Price: €{{ product.price }}</p>
+      <p class="product-stock">Stock: {{ product.stock }}</p>
+    </div>
+  </div>
+
+  <!-- Show 'No Result found' if resultCount is 0-->
+  <p *ngIf="!resultCount">No Result Found</p>
+</div>
