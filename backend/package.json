@@ -1,13 +1,14 @@
 {
   "name": "challenge",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Wholesale platform for retailers",
   "main": "index.js",
   "scripts": {
     "seedData": "ts-node seed/product.ts",
     "clean": "rm -rf dist",
     "start": "npm run clean && tsc && node dist/index.js",
-    "start:dev": "tsx watch src/index.ts"
+    "start:dev": "tsx watch src/index.ts",
+    "test": "NODE_ENV=test jest"
   },
   "author": "Fashion Cloud",
   "license": "ISC",
@@ -25,6 +26,10 @@
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
     "tsx": "^4.7.2"
   }
 }

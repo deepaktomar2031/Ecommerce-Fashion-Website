@@ -31,9 +31,11 @@ const useCors = () => {
 
 async function start() {
     useCors();
-    await connectDatabases();
+    if (process.env.NODE_ENV !== "test") {
+        await connectDatabases();
+        await listenPort(Config.SERVICE_PORT);
+    }
     await addBodyParser();
-    await listenPort(Config.SERVICE_PORT);
     await createRoutes();
 }
 
