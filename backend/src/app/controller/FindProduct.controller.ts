@@ -21,7 +21,7 @@ export const FindProduct = async (req: Request, res: Response) => {
         response.message = message.Fetched_successfully as string;
         response.data.productData = result as IProductData[];
 
-        return res.status(statusCode.successful_request).send({ result: true, message: message.Fetched_successfully, response });
+        return res.status(statusCode.successful_request).send(response);
     } catch (error: unknown) {
         console.log(LogErrorMessage(error));
         return res.status(statusCode.internal_server_error).send({ result: false, message: message.Something_went_wrong });

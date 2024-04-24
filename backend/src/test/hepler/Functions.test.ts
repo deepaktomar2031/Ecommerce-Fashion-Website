@@ -1,4 +1,6 @@
-import { QueryBuilder, SortingBuilder } from "./../../app/helper/Functions";
+import { SetDistinctProperty, GetDistinctProperty, QueryBuilder, SortingBuilder } from "./../../app/helper/Functions";
+import { ConnectDB, DisconnectDB } from "../Connection";
+import { filters } from "../../app/enum/filters";
 
 describe("Function QueryBuilder", () => {
     it("Responds with final MongoDB query when query object is supplied in request query", () => {
@@ -33,5 +35,42 @@ describe("Function SortingBuilder", () => {
         const response = SortingBuilder(sort);
 
         expect(response).toEqual(expectedResult);
+    });
+});
+
+describe("Function SetDistinctProperty", () => {
+    beforeAll(async () => {
+        await ConnectDB();
+    });
+
+    afterAll(async () => {
+        await DisconnectDB();
+    });
+
+    it("Responds with those many keys inside filters object, which are available in filters enum", async () => {
+        const actualResponse = await SetDistinctProperty();
+        const expectedResponse = Object.values(filters).length;
+
+        expect(Object.keys(actualResponse.data.filters).length).toBe(expectedResponse);
+    });
+});
+
+describe("Function GetDistinctProperty", () => {
+    beforeAll(async () => {
+        await ConnectDB();
+    });
+
+    afterAll(async () => {
+        await DisconnectDB();
+    });
+
+    it("Responds with 2 options in brandName available in DB", async () => {
+        const actualResponse = await GetDistinctProperty(filters.property_1);
+        expect(actualResponse!.length).toBe(2);
+    });
+
+    it("Responds with 3 options in category available in DB", async () => {
+        const actualResponse = await GetDistinctProperty(filters.property_2);
+        expect(actualResponse!.length).toBe(3);
     });
 });
