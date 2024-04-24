@@ -1,0 +1,83 @@
+@form-width: 100%;
+@form-max-width: 1200px;
+@form-padding: 20px;
+@shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+@label-color: #333;
+@button-color: #304c55;
+@button-hover-color: #5e94a5;
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: @form-width;
+  max-width: @form-max-width;
+  margin: 0 auto;
+  padding: @form-padding;
+  box-shadow: @shadow;
+
+  > * {
+    flex: 1;
+    margin: 0 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  mat-form-field {
+    width: 100%;
+
+    mat-label {
+      color: @label-color;
+    }
+
+    input,
+    .mat-select {
+      padding: 10px;
+      border-radius: 4px;
+      &:focus {
+        border-color: @button-hover-color;
+      }
+    }
+  }
+
+  button {
+    flex: none;
+    padding: 10px 20px;
+    background-color: @button-color;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: @button-hover-color;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    > * {
+      margin: 15px 0;
+      flex: none;
+    }
+
+    mat-form-field {
+      mat-label {
+        font-size: 16px;
+      }
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+}

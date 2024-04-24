@@ -11,4 +11,9 @@ export class FilterService {
 
   // change in component listner (subscriber)
   filters$: Observable<Filters | null> = this.filters.asObservable();
+
+  // Set current Filters
+  setFilters(options: Filters) {
+    this.filters.next(options);
+  }
 }

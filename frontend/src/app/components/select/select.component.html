@@ -1,0 +1,17 @@
+<form [formGroup]="filtersForm" (ngSubmit)="onFormSubmit()">
+  <ng-container
+    *ngFor = "let filter of [{ label: 'Brand', items: brandNameArray, control: 'selectedBrand' },
+              { label: 'Category', items: categoryArray,control: 'selectedCategory' },
+              { label: 'Price', items: priceSortArray, control: 'sortByPrice' }]">
+    <mat-form-field>
+      <mat-label>{{ filter.label }}</mat-label>
+      <mat-select formControlName="{{ filter.control }}">
+        <mat-option *ngFor="let item of filter.items" [value]="item">
+          {{ item }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+
+  <button type="submit">Filter</button>
+</form>
