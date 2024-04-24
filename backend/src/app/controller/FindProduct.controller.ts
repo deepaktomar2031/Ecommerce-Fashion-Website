@@ -4,10 +4,13 @@ import ProductSchema from "../model/product";
 import { IProductData } from "../interface/IProductData";
 import { message } from "../utils/locale";
 import { LogErrorMessage } from "../utils/error-handler";
+import { QueryBuilder } from "../helper/Functions";
+import { IQueryOutput } from "../interface/IQuery";
 
 export const FindProduct = async (req: Request, res: Response) => {
     try {
-        const response = (await ProductSchema.find()) as IProductData[];
+        const queryString = QueryBuilder(req.query) as IQueryOutput;
+        const response = (await ProductSchema.find(queryString)) as IProductData[];
         return res.status(statusCode.successful_request).send({ result: true, message: message.Fetched_successfully, response });
     } catch (error: unknown) {
         console.log(LogErrorMessage(error));
