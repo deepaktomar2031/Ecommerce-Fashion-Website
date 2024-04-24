@@ -8,3 +8,7 @@ export interface IQueryOutput {
     brandName?: String;
     category?: String;
 }
+
+export interface ISortingOutput {
+    [key: string]: -1 | 1;
+}
