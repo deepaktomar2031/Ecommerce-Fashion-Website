@@ -12,9 +12,12 @@ Node.js with Typescript is used to develop the backend using express framework
 ## Run Backend locally
 - `npm install` to install the dependencies
 - `npm run seedData` to save the entries from json to MongoDB
-- `npm run dev` to start & launch the server
+- `npm run start` to start & launch the server
     - It will run the server on port 8000 & api is available to consume
     - GET - http://localhost:8000/api/product
+
+# Run Unit Tests
+- npm test
 
 
 ## Front end
