@@ -1,7 +1,7 @@
-# coding-challenge-fashion-cloud
+# ecom-fashion-website
 
 
-# Repo : https://github.com/deepaktomar2031/coding-challenge-fashion-cloud
+# Repo : https://github.com/deepaktomar2031/ecom-fashion-website
 ## Branch:
 - master - Source Branch
 

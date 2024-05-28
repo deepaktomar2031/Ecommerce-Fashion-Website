@@ -4,7 +4,7 @@ import { LogErrorMessage } from "./../app/utils/error-handler";
 
 export const ConnectDB = async () => {
     try {
-        await mongoose.connect(Config.MONGO_URL + Config.FASHION_CLOUD_DB);
+        await mongoose.connect(Config.MONGO_URL + Config.CLOUD_DB);
         console.log(`Successfully Connected to MongoDB!`);
     } catch (error: unknown) {
         console.error(`An error occurred ${LogErrorMessage(error)}`);

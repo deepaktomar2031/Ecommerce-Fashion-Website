@@ -9,7 +9,7 @@ import { routes } from "./routes";
 export const app: Express = express();
 
 const connectDatabases = async () => {
-    await DBConnector.connectMongo(Config.MONGO_URL + Config.FASHION_CLOUD_DB);
+    await DBConnector.connectMongo(Config.MONGO_URL + Config.CLOUD_DB);
 };
 
 const addBodyParser = async () => {

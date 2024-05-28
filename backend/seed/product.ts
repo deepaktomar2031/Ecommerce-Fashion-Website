@@ -28,7 +28,7 @@ async function main() {
     try {
         const products = await getData();
         await client.connect();
-        const db = client.db(Config.FASHION_CLOUD_DB);
+        const db = client.db(Config.CLOUD_DB);
         const collection = db.collection("products");
         await collection.insertMany(products);
     }

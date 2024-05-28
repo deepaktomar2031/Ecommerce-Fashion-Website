@@ -1,7 +1,7 @@
 {
-  "name": "challenge",
-  "version": "1.0.6",
-  "description": "Wholesale platform for retailers",
+  "name": "ecom-fashion-website",
+  "version": "2.0.1",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "seedData": "ts-node seed/product.ts",
@@ -10,7 +10,7 @@
     "start:dev": "tsx watch src/index.ts",
     "test": "NODE_ENV=test jest"
   },
-  "author": "Fashion Cloud",
+  "author": "Deepak Tomar",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
